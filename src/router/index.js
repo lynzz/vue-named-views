@@ -23,9 +23,7 @@ const processRoutes = (data, parent) => {
       let prefix = parent ? `/${parent}` : ''
       let meta = item.meta = item.meta || {}
       item.path = `${prefix}/${name}`
-      item.components = {
-        default: require(`../views${prefix}/${name}/${name}`)
-      }
+      item.components = require(`../views${prefix}/${name}/${name}`)
 
       if (meta.sidebar) {
         item.components.sidebar = Sidebar
